@@ -1,0 +1,14 @@
+api
+  --db.js
+components
+  --painter
+images
+pages
+  --index
+  --editor
+  --history
+utils
+app.js
+app.json
+app.wxss
+

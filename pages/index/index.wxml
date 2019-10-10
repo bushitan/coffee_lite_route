@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class='container'>
+    <map id="map" class='map'
+        longitude="113.324520" latitude="23.099994" scale="14" 
+        markers="{{mapMarkers}}"  
+        show-location 
+        style="height: {{mapHeight}};">
+        <cover-view class='map_btn_content' bindtouchstart="touchstart">
+            <cover-image class='map_btn'  src='/images/icon_3_nav.png' catchtap='toMapRoute'></cover-image>
+            <cover-image class='map_btn' src='/images/icon_4_editor.png' catchtap='toEditor'></cover-image>
+        </cover-view>
+    </map>
+    <view class='route'>
+        <view class='header'>
+            <view class='header_des' catchtap='toHistory'>浏览记录</view>
+            <image class='header_icon' src='{{iconArrow}}' catchtap='switchArrow'></image>
+            <view class='header_des hidden'>历史记录</view>
+        </view>
+        <view class='content'>
+            <image class='route_image' src='/images/temp_all.jpg' mode='widthFix' catchtap='preRouteImage'></image>
+            <!-- <scroll-view scroll-y="{{true}}" class='route_scroll' style='height:{{routeHeight}}'>
+                <image class='route_image' src='/images/temp_all.jpg' mode='widthFix' catchtap='preRouteImage'></image>
+            </scroll-view> -->
+        </view>
+    </view>
+</view>
