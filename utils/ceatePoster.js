@@ -64,7 +64,7 @@ class CreatePoster{
         })
         this.config.texts.push({  // 地址
             x: 106,
-            y: 777,
+            y: 780,
             baseLine: 'middle',
             text: address,
             fontSize: 24,
@@ -74,9 +74,9 @@ class CreatePoster{
         this.config.texts.push(
         {  // 电话
             x: 106,
-            y: 828,
+            y: 830,
             baseLine: 'middle',
-            text: hostName + "  " + phone,
+            text: phone + "  " + hostName,
             fontSize: 24,
             color: '#ffffff',
             zIndex: 300,
@@ -267,4 +267,4 @@ class CreatePoster{
     }
 }
 
-module.exports = new CreatePoster()
+module.exports = CreatePoster

@@ -16,6 +16,15 @@
     padding: 0 0 5px;
     margin-bottom: 10px;
 }
+.logo{
+    margin: 10px 0 5px 0 ;
+    background-color: #eee;
+    width: 72px;
+    height: 72px;
+    border:1rpx #888 solid;
+}
+
+
 .red{
     color: red
 }
@@ -49,10 +58,13 @@
     padding-right: 10px;
 }
 .step_content{
-    flex:2 1 auto;
+    flex:2 1 0;
 }
 .step_num{
     font-size: 10pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 }
 .step_area{
     width: 100%;
@@ -84,10 +96,16 @@
 }
 .tool_btn{
     text-align: center;
-    padding:20rpx 60rpx ;
+    padding:0 60rpx ;
     background:rgba(241,241,241,1);
     border-radius:35px;
     margin-left: 10px;
-    font-size: 11pt;
+    margin-right: 0px;
+    font-size: 13pt;
     font-weight: bold;
+
 }
+.tool_btn:after {
+    display: none
+}
+button { background-color: #fff; }

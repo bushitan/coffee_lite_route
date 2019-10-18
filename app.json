@@ -1,8 +1,9 @@
 {
     "pages": [
+        "pages/route/route",
+        "pages/editor/editor",
         "pages/index/index",
-        "pages/history/history",
-        "pages/editor/editor"
+        "pages/history/history"
     ],
     "window": {
         "backgroundTextStyle": "light",

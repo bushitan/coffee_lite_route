@@ -4,69 +4,102 @@
     create="{{shareCover}}" 
 ></ps_image> -->
 <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
-    <button >点击生成海报</button>
+    <!-- <button >点击生成海报</button> -->
 </poster>
 
 <view class='container'>
     
-    <form >
-        <view class='form'>
+    <form bindsubmit="formSubmit">
+        <!-- <view>            
+            <button formType="submit" data-type='preview' size="mini" >预览</button>
+            <button formType="submit" data-type='create' size="mini" >预览</button>
+        </view> -->
+        <view class='form' >
             <view class='base'>
-                <view class='title'>基本信息</view>
+                <view class='title'>基本信息</view>                
+                <view class='node'>
+                    <view class='name'>Logo<label class='red'>*</label>：</view>
+                    <image class="logo" src="{{logo}}" catchtap="setLogo"></image>
+                </view>    
                 <view class='node'>
                     <view class='name'>店名<label class='red'>*</label>：</view>
-                    <input class='input' placeholder-class="pla" placeholder='请输入店名'></input>
-                </view>
-                <view class='node'>
-                    <view class='name'>地址<label class='red'>*</label>：<label class='red' catchtap='getLocation'>(点击获取)</label> </view>
-                    <input class='input' placeholder-class="pla" placeholder='请输入地址'></input>
-                </view>
+                    <input name="name" class='input' placeholder-class="pla" placeholder='请输入店名'></input>
+                </view>                
                 <view class='node'>
                     <view class='name'>电话<label class='red'>*</label>：</view>
-                    <input class='input' placeholder-class="pla" placeholder='请输入电话'></input>
+                    <input name="phone" class='input' placeholder-class="pla" placeholder='请输入电话'></input>
+                </view>
+                <view class='node'>
+                    <view class='name'>地址<label class='red'>*</label>：<label class='red' catchtap='getLocation'>(点击获取)</label> </view>                    
+                    <input name="address" value="{{address.address}}" bindinput="inputAddress"
+                        class='input'  placeholder-class="pla" placeholder='请输入地址'
+                    ></input>
+                </view>
+                <view class='node'>
+                    <view class='name'>纬度<label class='red'>*</label>：</view>
+                    <input name="latitude" value="{{address.latitude}}" bindinput="inputAddress" 
+                        class='input' placeholder-class="pla" placeholder='请输入纬度'></input>
+                </view>
+                <view class='node'>
+                    <view class='name'>经度<label class='red'>*</label>：</view>
+                    <input name="longitude" value="{{address.longitude}}" bindinput="inputAddress" 
+                        class='input' placeholder-class="pla" placeholder='请输入经度'></input>
                 </view>
             </view>
 
-            <view class='image'>
-                <view class='title'>实景编辑</view>
-                <view class='step'>
-                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
-                    <view class='step_content'>
-                        <view class='step_num'>Step:1</view>
-                        <textarea class='step_area'  placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
-                    </view>
-                </view>
-                <view class='step'>
-                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
-                    <view class='step_content'>
-                        <view class='step_num'>Step:2</view>
-                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
-                    </view>
-                </view>
-                <view class='step'>
-                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
-                    <view class='step_content'>
-                        <view class='step_num'>Step:2</view>
-                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
-                    </view>
-                </view>
-                <view class='step'>
-                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
-                    <view class='step_content'>
-                        <view class='step_num'>Step:2</view>
-                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
-                    </view>
-                </view>
+            <view class=''>
+                <view class='title'>实景编辑<label class='red'>*</label></view>
+                <block wx:for="{{stepList}}" wx:key="index">
+                    <view class='step'>
+                        <image name="step_{{index}}_image"  
+                            class="step_image" src='{{item.image}}' mode='widthFix'></image>
+                        <view class='step_content'>
+                            <view class='step_num'>
+                                <label>步骤:{{index+1}}</label> 
+                                <label catchtap="stepDelete" data-stepIndex="{{index}}" style="color:red">删除</label> 
+                            </view> 
+                            <textarea  class='step_area' value="{{item.text}}"
+                            bindinput="inputText" data-stepIndex="{{index}}"
+                            placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
+                        </view>
+                    </view>   
+                </block>
                 <view class='add'>
                     <image class='add_icon' src='/images/icon_5_add.png'></image>
-                    <label catchtap='add'>新增步骤点</label>                    
+                    <label catchtap='stepAdd'>新增步骤点</label>                    
                 </view>
             </view>
-
             <view class='tool'>
-                <view class='tool_btn' catchtap='preview'>预览</view>
-                <view class='tool_btn' style='color: #EBA22E;' catchtap='make'>生成</view>
+                <button formType="submit" data-type='preview'  class='tool_btn' style='color: #EBA22E;'>生成</button>
+                <!-- <button formType="submit" data-type='create' size="mini" style='color: #EBA22E;'>生成</button> -->
+                <!-- <view class='tool_btn' >预览</view> -->
+                <!-- <view class='tool_btn' style='color: #EBA22E;' catchtap='make'>生成</view> -->
             </view>
         </view>
     </form>
 </view>
+
+
+
+                <!-- <view class='step'>
+                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
+                    <view class='step_content'>
+                        <view class='step_num'>Step:2</view>
+                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
+                    </view>
+                </view>
+                <view class='step'>
+                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
+                    <view class='step_content'>
+                        <view class='step_num'>Step:2</view>
+                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
+                    </view>
+                </view>
+                <view class='step'>
+                    <image class="step_image" src='/images/step.jpg' mode='widthFix'></image>
+                    <view class='step_content'>
+                        <view class='step_num'>Step:2</view>
+                        <textarea class='step_area' placeholder-class="pla" placeholder='请输入导航文字' ></textarea>
+                    </view>
+                </view>
+              -->
