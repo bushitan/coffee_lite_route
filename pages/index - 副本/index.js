@@ -41,39 +41,9 @@ Page({
         iconArrow: STATUS_BOTTOM.iconArrow,
     },
 
-    onLoad: function (options) {
-        this.onInit(options)
-        // wx.redirectTo({
-        //     url: '/pages/editor/editor',
-        // })
+    onLoad: function () {
+
     },
-
-    onInit(options){
-        // 获取路由的id
-        var routeID = 1
-        if(options.hasOwnProperty('scene')) 
-            routeID = decodeURIComponent(options.scene) 
-
-        db.userLogin().then(res=>{
-            if ( res.code == db.CODE_LOGIN_SUCCESS){
-                    wx.redirectTo({
-                        url: '/pages/index/index?routeID=' + routeID,
-                    })
-            }
-            console.log(res)
-        }).catch(res=>{
-
-        })
-    },
-
-
-
-
-
-
-
-
-
 
     /**
      * @打开地图导航

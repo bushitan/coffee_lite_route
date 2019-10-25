@@ -70,7 +70,9 @@
                 </view>
             </view>
             <view class='tool'>
-                <button formType="submit" data-type='preview'  class='tool_btn' style='color: #EBA22E;'>生成</button>
+            
+                <button formType="submit" data-type='preview'  class='tool_btn' style='color: #888;'>预览</button>
+                <button formType="submit" data-type='create'  class='tool_btn' style='color: #EBA22E;'>生成</button>
                 <!-- <button formType="submit" data-type='create' size="mini" style='color: #EBA22E;'>生成</button> -->
                 <!-- <view class='tool_btn' >预览</view> -->
                 <!-- <view class='tool_btn' style='color: #EBA22E;' catchtap='make'>生成</view> -->

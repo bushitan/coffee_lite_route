@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='container'>
     <map id="map" class='map'
-        longitude="{{route.longitude}}" latitude="{{route.latitude}}" scale="14" 
+        longitude="113.324520" latitude="23.099994" scale="14" 
         markers="{{mapMarkers}}"  
         show-location 
         style="height: {{mapHeight}};">
@@ -17,16 +17,10 @@
             <view class='header_des hidden'>历史记录</view>
         </view>
         <view class='content'>
-            <image class='route_image' src='{{route.imageUrl}}' mode='widthFix' catchtap='preRouteImage'></image>
-           
+            <image class='route_image' src='/images/temp_all.jpg' mode='widthFix' catchtap='preRouteImage'></image>
+            <!-- <scroll-view scroll-y="{{true}}" class='route_scroll' style='height:{{routeHeight}}'>
+                <image class='route_image' src='/images/temp_all.jpg' mode='widthFix' catchtap='preRouteImage'></image>
+            </scroll-view> -->
         </view>
     </view>
 </view>
-
-
-
-
-
- <!-- <scroll-view scroll-y="{{true}}" class='route_scroll' style='height:{{routeHeight}}'>
-                <image class='route_image' src='/images/temp_all.jpg' mode='widthFix' catchtap='preRouteImage'></image>
-            </scroll-view> -->

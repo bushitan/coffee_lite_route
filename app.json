@@ -3,7 +3,8 @@
         "pages/route/route",
         "pages/editor/editor",
         "pages/index/index",
-        "pages/history/history"
+        "pages/history/history",
+        "pages/test/test"
     ],
     "window": {
         "backgroundTextStyle": "light",
