@@ -1,7 +1,8 @@
 {
     "pages": [
-        "pages/route/route",
+        "pages/editor_cover/editor_cover",
         "pages/editor/editor",
+        "pages/route/route",
         "pages/index/index",
         "pages/history/history",
         "pages/test/test"

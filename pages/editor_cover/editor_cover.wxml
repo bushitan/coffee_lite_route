@@ -1,0 +1,11 @@
+<!--index.wxml-->
+
+<!-- <ps_image 
+    create="{{shareCover}}" 
+></ps_image> -->
+<poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <!-- <button >点击生成海报</button> -->
+</poster>
+
+
+<button catchtap="clickBtn">生成海报</button>

@@ -1,0 +1,111 @@
+/**index.wxss**/
+
+.form{
+    padding: 40rpx 50rpx 15px;
+}
+.title{
+    padding:0 0 20rpx ;
+    /* font-size: 13pt; */
+    font-size: 15pt;
+    font-weight: bolder;
+}
+
+/*****基本信息编辑*****/
+.node {
+    /* display: flex; */
+    padding: 0 0 5px;
+    margin-bottom: 10px;
+}
+.logo{
+    margin: 10px 0 5px 0 ;
+    background-color: #eee;
+    width: 72px;
+    height: 72px;
+    border:1rpx #888 solid;
+}
+
+
+.red{
+    color: red
+}
+.name{
+    color: #141414;
+    /* font-size: 10pt; */
+    font-size: 32rpx;
+    /* width: 50px; */
+}
+.input{
+    width: 100%;
+    color: #EBA22E;
+    border-bottom: 1rpx #eee solid;    
+    font-size: 10pt;
+    padding: 6px 0;
+    
+}
+.focus{
+    color: #eee;
+}
+
+
+/*****实景图片编辑*****/
+.step{
+    display: flex;
+    margin-bottom: 15px
+}
+.step_image{
+    flex:1 1 ;
+    /* width: 40px; */
+    padding-right: 10px;
+}
+.step_content{
+    flex:2 1 0;
+}
+.step_num{
+    font-size: 10pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.step_area{
+    width: 100%;
+    height: 40px;
+    color: #EBA22E;
+    padding: 5px 0;  
+    font-size: 10pt;
+}
+
+/**********增加按钮********/
+.add{
+    display: flex;
+    align-items: center;
+    color: #EBA22E;
+    padding-bottom:15px;
+    border-bottom: 1rpx solid #EBA22E;
+}
+.add_icon{
+    width: 15px;
+    height: 15px; 
+    margin-right: 5px;
+}
+
+/**********底部工具按钮********/
+.tool{
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0 30px;
+}
+.tool_btn{
+    text-align: center;
+    padding:0 60rpx ;
+    background:rgba(241,241,241,1);
+    border-radius:35px;
+    margin-left: 10px;
+    margin-right: 0px;
+    font-size: 13pt;
+    font-weight: bold;
+
+}
+.tool_btn:after {
+    display: none
+}
+button { background-color: #fff; }

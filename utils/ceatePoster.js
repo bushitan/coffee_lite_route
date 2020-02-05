@@ -9,7 +9,7 @@ class CreatePoster{
     constructor(){
         this.config = {
             width: 690,
-            // height: 1355 + 100, // 初始化不设置高度
+            height: 1355 + 100, // 初始化不设置高度
             debug: false,
             pixelRatio: 1,
             blocks: [],
