@@ -1,6 +1,9 @@
 //app.js
+var db = require('db/db.js')
 App({
-  onLaunch: function () {
 
-  },
+    db: db,
+    onLaunch: function () {
+        
+    },
 })

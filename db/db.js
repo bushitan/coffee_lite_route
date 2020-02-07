@@ -1,5 +1,5 @@
 
-import dbNormal from '../db/db_1_Route.js'
+import dbNormal from '../db/db_map.js'
 class db extends dbNormal {
 
     constructor() {

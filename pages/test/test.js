@@ -1,5 +1,5 @@
 // pages/test/test.js
-import db from '../../db/db.js'
+var app =getApp()
 Page({
 
     /**
@@ -12,9 +12,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    async onLoad(options) {
 
-        // console.log(1, db.getName())
+        var store = await app.db.getStoreInfo()
+        console.log(store)
     },
 
     /**

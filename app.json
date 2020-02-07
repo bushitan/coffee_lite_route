@@ -1,11 +1,11 @@
 {
     "pages": [
-        "pages/route/route",
+        "pages/test/test",
         "pages/editor_cover/editor_cover",
+        "pages/route/route",
         "pages/editor/editor",
         "pages/index/index",
-        "pages/history/history",
-        "pages/test/test"
+        "pages/history/history"
     ],
     "window": {
         "backgroundTextStyle": "light",
