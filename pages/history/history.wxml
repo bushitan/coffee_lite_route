@@ -1,2 +1,10 @@
 <!--index.wxml-->
-<view>浏览记录制作中</view>
+<view class="history_container">
+  <view wx:for="{{historyList}}" class="history_list" bindtap="toPage" data-id="{{item._id}}">
+    <view>
+      <view class="yellow">{{item.name}}</view>
+      <view class="create_time">创建时间：{{item.createdTime}}</view>
+    </view>
+    <view class='arrow'></view>
+  </view>
+</view>

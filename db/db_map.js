@@ -20,7 +20,23 @@ class dbSon extends dbFather {
     //     })
     // }
 
-
+    // 登录
+    login() {
+      return new Promise((resolve, reject) => {
+        wx.showLoading({ title: "加载中" })
+        wx.cloud.callFunction({
+          name: 'login',
+          success: res => {
+            wx.hideLoading()
+            resolve(res.result)
+          },
+          fail: res => {
+            wx.hideLoading()
+            reject(res.result)
+          },
+        })
+      })
+    }
 
     // 获取地图信息
     mapGet(obj) {

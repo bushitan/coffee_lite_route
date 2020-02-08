@@ -1,12 +1,12 @@
 {
     "pages": [
-       
+        "pages/index/index",
+        "pages/history/history",
+        "pages/historyDetail/historyDetail",
         "pages/route/route",
         "pages/editor_cover/editor_cover",
         "pages/test/test",
-        "pages/editor/editor",
-        "pages/index/index",
-        "pages/history/history"
+        "pages/editor/editor" 
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -97,10 +97,18 @@ Page({
      *      5、跳转至成功页面
      */
     async createRouteImage(value){
-      value.logo = this.data.logo
+      if (this.data.logo) {
+        var logo = await this.uploadPic(this.data.logo)
+        console.log(logo)
+        value.logo = logo
+      }
+      if (this.data.imgUrl) {
+        var imgUrl = await this.uploadPic(this.data.imgUrl)
+        console.log(imgUrl)
+        value.imageUrl = imgUrl
+      }
       value.stepList = this.data.stepList
-      value.imageUrl = this.data.imgUrl
-      var store = await app.db.mapAdd(value)
+      var res = await app.db.mapAdd(value)
         // db.getLiteQR().then(res=>{
         //     var qrUrl = res.data.qrUrl
         //     console.log(qrUrl)
@@ -109,6 +117,16 @@ Page({
 
         //     // this.previewPoster(value)
         // })
+    },
+
+    async uploadPic(filePath) {
+      var cloudName = "notice/" + app.globalData.userID + "_" + new Date().getTime()
+      var cloudPath = cloudName + filePath.match(/\.[^.]+?$/)[0]
+      var cloudUrl = await app.db.uploadImage({
+        filePath: filePath,
+        cloudPath: cloudPath,
+      })
+      return cloudUrl
     },
 
     /**

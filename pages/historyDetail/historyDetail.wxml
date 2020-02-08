@@ -1,0 +1,24 @@
+<!--pages/historyDetail/historyDetail.wxml-->
+<view class="detail_container">
+  <view class="title">基本信息</view>
+  <view class="item">
+    <view class="item-title">店名：</view>
+    <view class="desc yellow">金咖啡</view>
+  </view>
+  <view class="item">
+    <view class="item-title">地址：</view>
+    <view class="desc">星湖路16号</view>
+  </view>
+  <view class="item">
+    <view class="item-title">电话：</view>
+    <view class="desc">13420020771</view>
+  </view>
+  <view class="item">
+    <view class="item-title">创建时间：</view>
+    <view class="desc">2020-02-10</view>
+  </view>
+  <view class="nav yellow">
+    <view>导航图</view>
+    <image src="/images/download.png" style="width:32rpx; height:32rpx;"></image>
+  </view>
+</view>
