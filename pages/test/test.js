@@ -14,8 +14,14 @@ Page({
      */
     async onLoad(options) {
 
-        var store = await app.db.getStoreInfo()
-        console.log(store)
+      // var store = await app.db.getStoreInfo()
+      // console.log(store)
+      var store2 = await app.db.mapGet()
+      console.log(store2)
+      // var store3 = await app.db.mapAdd()
+      // console.log(store3)
+      // var store4 = await app.db.mapGetList()
+      // console.log(store4)
     },
 
     /**

@@ -24,22 +24,65 @@ class dbSon extends dbFather {
 
     // 获取地图信息
     mapGet(obj) {
-        return new Promise((reslove, reject) => {
-            wx.showLoading({ title: "删除中" })
+        return new Promise((resolve, reject) => {
+            wx.showLoading({ title: "加载中" })
             wx.cloud.callFunction({
                 name: 'map_get',
                 data: obj,
                 success: res => {
-                    wx.hideLoading()
-                    console.log(res.result)
-                    reslove(res.result)
+                  wx.hideLoading()
+                  console.log(res.result)
+                  resolve(res.result)
                 },
                 fail: res => {
-                    console.log(res)
-                    reject(res.result)
+                  wx.hideLoading()
+                  console.log(res)
+                  reject(res.result)
                 },
             })
         })
+    }
+
+    // 添加地图信息
+    mapAdd(obj) {
+      return new Promise((resolve, reject) => {
+        wx.showLoading({ title: "生成中" })
+        wx.cloud.callFunction({
+          name: 'map_add',
+          data: obj,
+          success: res => {
+            wx.hideLoading()
+            console.log(res.result)
+            resolve(res.result)
+          },
+          fail: res => {
+            wx.hideLoading()
+            console.log(res)
+            reject(res.result)
+          },
+        })
+      })
+    }
+
+    // 获取地图列表
+    mapGetList(obj) {
+      return new Promise((resolve, reject) => {
+        wx.showLoading({ title: "生成中" })
+        wx.cloud.callFunction({
+          name: 'map_get_list',
+          data: obj,
+          success: res => {
+            wx.hideLoading()
+            console.log(res.result)
+            resolve(res.result)
+          },
+          fail: res => {
+            wx.hideLoading()
+            console.log(res)
+            reject(res.result)
+          },
+        })
+      })
     }
 
 
@@ -47,16 +90,16 @@ class dbSon extends dbFather {
     /**********综合模块**********/
     // 上传图片
     uploadImage(obj) {
-        return new Promise((reslove, reject) => {
+        return new Promise((resolve, reject) => {
             // var data = {}
-            // reslove(data)
+            // resolve(data)
             wx.showLoading({ title: "图片上传中" })
             wx.cloud.uploadFile({
                 cloudPath: obj.cloudPath,
                 filePath: obj.filePath,
                 success: res => {
                     wx.hideLoading()
-                    reslove(res.fileID)
+                    resolve(res.fileID)
                 },
                 fail: e => {
                     console.error('[上传文件] 失败：', e)

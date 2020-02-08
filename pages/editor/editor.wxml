@@ -27,7 +27,7 @@
                 </view>                
                 <view class='node'>
                     <view class='name'>电话<label class='red'>*</label>：</view>
-                    <input name="phone" class='input' placeholder-class="pla" placeholder='请输入电话'></input>
+                    <input name="tel" class='input' placeholder-class="pla" placeholder='请输入电话'></input>
                 </view>
                 <view class='node'>
                     <view class='name'>地址<label class='red'>*</label>：<label class='red' catchtap='getLocation'>(点击获取)</label> </view>                    

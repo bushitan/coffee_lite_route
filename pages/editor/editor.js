@@ -29,7 +29,7 @@ Page({
             { image: "../../images/store/2.jpg", text: "别乱走动，过街!" },
             { image: "../../images/store/3.jpg", text: "就是这白色招牌" },
         ],
-
+        imgUrl: "",  // 存储最终海报图
         isPreview:false, //必须预览后才能生成
     },
 
@@ -60,7 +60,7 @@ Page({
      */
     formSubmit(e) {
         // console.log(e.detail.target.dataset.type)
-        // console.log(e.detail.value)
+        console.log(e.detail.value)
         var type = e.detail.target.dataset.type
         var value = e.detail.value
         // if (this.checkEmpty(value)){
@@ -96,15 +96,19 @@ Page({
      *      4、保存实景导航图
      *      5、跳转至成功页面
      */
-    createRouteImage(value){
-        db.getLiteQR().then(res=>{
-            var qrUrl = res.data.qrUrl
-            console.log(qrUrl)
-            // this.setData({logo:qrurl})
-            // TODO 合成 结束
+    async createRouteImage(value){
+      value.logo = this.data.logo
+      value.stepList = this.data.stepList
+      value.imageUrl = this.data.imgUrl
+      var store = await app.db.mapAdd(value)
+        // db.getLiteQR().then(res=>{
+        //     var qrUrl = res.data.qrUrl
+        //     console.log(qrUrl)
+        //     // this.setData({logo:qrurl})
+        //     // TODO 合成 结束
 
-            // this.previewPoster(value)
-        })
+        //     // this.previewPoster(value)
+        // })
     },
 
     /**
@@ -133,6 +137,7 @@ Page({
 
     onPosterSuccess(e) {
         const { detail } = e;
+        this.data.imgUrl = detail;
         wx.previewImage({
             current: detail,
             urls: [detail]

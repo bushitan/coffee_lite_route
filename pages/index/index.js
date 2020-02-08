@@ -57,15 +57,21 @@ Page({
         this.onInit(options)
     },
 
-    onInit(options){
-        var routeID = options.routeID
-        db.getRoute(routeID).then(res=>{
+    async onInit(options){
+      var obj = options
+      // 如果非扫码进入，显示制作步骤
+      // 如果扫码进入，显示该店信息
+      if (!obj._id) {
+        db.getRoute(obj).then(res=>{
             var route = res.data.route
             this.setData({
                 mapMarkers: this.getMarkers(route),
                 route: route,
             })
         })
+      } else {
+        var map = await app.db.mapGet(obj)
+      }
     },
 
     /**
