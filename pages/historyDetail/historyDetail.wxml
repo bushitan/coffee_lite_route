@@ -1,24 +1,36 @@
 <!--pages/historyDetail/historyDetail.wxml-->
-<view class="detail_container">
+<view class="detail_container" wx:if="{{type == 1}}">
   <view class="title">基本信息</view>
   <view class="item">
     <view class="item-title">店名：</view>
-    <view class="desc yellow">金咖啡</view>
+    <view class="desc yellow">{{form.name}}</view>
   </view>
   <view class="item">
     <view class="item-title">地址：</view>
-    <view class="desc">星湖路16号</view>
+    <view class="desc">{{form.address}}</view>
   </view>
   <view class="item">
     <view class="item-title">电话：</view>
-    <view class="desc">13420020771</view>
+    <view class="desc">{{form.tel}}</view>
   </view>
   <view class="item">
     <view class="item-title">创建时间：</view>
-    <view class="desc">2020-02-10</view>
+    <view class="desc">{{form.createTime}}</view>
   </view>
-  <view class="nav yellow">
-    <view>导航图</view>
-    <image src="/images/download.png" style="width:32rpx; height:32rpx;"></image>
+  <view class="download">
+    <view class="yellow">导航图</view>
+    <view bindtap="downloadImg">
+      <image src="/images/download.png" style="width:32rpx; height:32rpx;"></image> 下载
+    </view>
   </view>
+  <view class="download">
+    <view class="yellow">二维码</view>
+    <view bindtap="downloadCode">
+      <image src="/images/download.png" style="width:32rpx; height:32rpx;"></image> 下载
+    </view>
+  </view>
+</view>
+<!-- 用户浏览记录显示海报图片 -->
+<view wx:if="{{type == 2}}">
+  <image class='route_image' src='{{route.imageUrl}}' mode='widthFix' catchtap='preRouteImage'></image>
 </view>

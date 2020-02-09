@@ -25,17 +25,17 @@
 
 /***********实景导航部分***********/
 .route{
-    padding: 15px 15px 0;
+    padding: 30rpx 30rpx 0;
 }
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10px;
-    margin-bottom: 15px;
+    padding: 15rpx 0 35rpx 0;
 }
 .header_des{
-    font-size: 10pt;
+  font-weight: bold;
+  font-size: 30rpx;
 }
 .hidden{
     color: #ffffff;

@@ -5,29 +5,30 @@ const db = require("../../db/db.js")
 
 Page({
     data: {
-        historyList:[
-          {
-            _id: 1,
-            name: '金咖啡',
-            createdTime: '2020-02-02'
-          },
-          {
-            _id: 2,
-            name: '蓝山咖啡',
-            createdTime: '2020-02-12'
-          },
-        ]
+        historyList:[],
+        type: -1
     },
 
-    onLoad: function () {
+    onLoad: function (options) {
+      this.onInit(options)
+    },
 
+    async onInit(options) {
+      console.log(parseInt(options.type))
+      this.setData({
+        type: parseInt(options.type)
+      })
+      var result = await app.db.mapGetList({ type: this.data.type })
+      this.setData({
+        historyList: result.data
+      })
     },
 
     toPage(e) {
       console.log(e)
       var id = e.currentTarget.dataset.id
       wx.navigateTo({
-        url: '/pages/historyDetail/historyDetail?id=' + id,
+        url: `/pages/historyDetail/historyDetail?id=${id}&type=${this.data.type}`
       })
     }
     

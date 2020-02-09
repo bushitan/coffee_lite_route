@@ -24,7 +24,7 @@ Page({
         // 地图坐标
         mapMarkers: [{
             iconPath: "/images/icon_6_mark.png",
-            id: 0,
+            _id: 0,
             latitude: 23.099994,
             longitude: 113.324520,
             width: 50,
@@ -41,16 +41,17 @@ Page({
         }],
         route:{
             iconPath: "/images/icon_6_mark.png",
-            id: 0,
+            _id: 0,
             latitude: 23.099994,
             longitude: 113.324520,
             name: "seeking咖啡(123金湖店)",
             address: "南宁金湖广场",
             imageUrl: "/images/all.jpg",
         },
-
         routeHeight: STATUS_BOTTOM.routeHeight,
         iconArrow: STATUS_BOTTOM.iconArrow,
+        isUserVisit: false,
+        type: -1 // 1获取我创建的，2  获取我浏览的
     },
 
     onLoad: function (options) {
@@ -58,19 +59,38 @@ Page({
     },
 
     async onInit(options){
-      var obj = options
-      // 如果非扫码进入，显示制作步骤
-      // 如果扫码进入，显示该店信息
-      if (!obj._id) {
-        db.getRoute(obj).then(res=>{
-            var route = res.data.route
-            this.setData({
-                mapMarkers: this.getMarkers(route),
-                route: route,
-            })
+      // 如果非扫码进入(商家)，显示制作步骤
+      // 如果扫码进入（用户），显示该店信息
+      if (options && options.hasOwnProperty("scene")) {
+        this.setData({
+          isUserVisit: true,
+          type: 2
+        })
+        var obj = {}
+        // obj._id = decodeURIComponent(options.scene) 
+        obj._id = options.scene
+        var result = await app.db.mapGet(obj)
+        var latitude = 'mapMarkers[0].latitude'
+        var longitude = 'mapMarkers[0].longitude'
+        var content = 'mapMarkers[0].callout.content'
+        this.setData({
+          [latitude]: result.data.latitude,
+          [longitude]: result.data.longitude,
+          [content]: result.data.name,
+          route: result.data,
         })
       } else {
-        var map = await app.db.mapGet(obj)
+        this.setData({
+          isUserVisit: false,
+          type: 1
+        })
+        db.getRoute(obj).then(res => {
+          var route = res.data.route
+          this.setData({
+            mapMarkers: this.getMarkers(route),
+            route: route,
+          })
+        })
       }
     },
 
@@ -153,11 +173,11 @@ Page({
     },
 
     /**
-     * @method 跳转到历史记录
+     * @method 根据type值 跳转到 制作记录 或是 浏览记录
      */
     toHistory(){
         wx.navigateTo({
-            url: '/pages/history/history',
+            url: '/pages/history/history?type=' + this.data.type,
         })
     },
 

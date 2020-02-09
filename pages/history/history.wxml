@@ -3,7 +3,8 @@
   <view wx:for="{{historyList}}" class="history_list" bindtap="toPage" data-id="{{item._id}}">
     <view>
       <view class="yellow">{{item.name}}</view>
-      <view class="create_time">创建时间：{{item.createdTime}}</view>
+      <view class="create_time" wx:if="{{type == 1}}">创建时间：{{item.createTime}}</view>
+      <view class="create_time" wx:if="{{type == 2}}">浏览时间：{{item.createTime}}</view>
     </view>
     <view class='arrow'></view>
   </view>

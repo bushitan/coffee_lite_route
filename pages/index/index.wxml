@@ -12,9 +12,9 @@
     </map>
     <view class='route'>
         <view class='header'>
-            <view class='header_des' catchtap='toHistory'>浏览记录</view>
+            <view class="header_des {{isUserVisit?'hidden':''}}" catchtap='toHistory'>制作记录 ></view>
             <image class='header_icon' src='{{iconArrow}}' catchtap='switchArrow'></image>
-            <view class='header_des hidden'>历史记录</view>
+            <view class="header_des {{isUserVisit?'':'hidden'}}" catchtap='toHistory'>浏览记录 ></view>
         </view>
         <view class='content'>
             <image class='route_image' src='{{route.imageUrl}}' mode='widthFix' catchtap='preRouteImage'></image>
