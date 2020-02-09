@@ -17,8 +17,7 @@
             <view class="header_des {{isUserVisit?'':'hidden'}}" catchtap='toHistory'>浏览记录 ></view>
         </view>
         <view class='content'>
-            <image class='route_image' src='{{route.imageUrl}}' mode='widthFix' catchtap='preRouteImage'></image>
-           
+          <image class='route_image' src='{{route.imageUrl}}' mode='widthFix' catchtap='preRouteImage'></image>         
         </view>
     </view>
 </view>

@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="history_container">
-  <view wx:for="{{historyList}}" class="history_list" bindtap="toPage" data-id="{{item._id}}">
+  <view wx:for="{{historyList}}" class="history_list" bindtap="toPage" data-id="{{item._id}}" data-index="{{index}}">
     <view>
       <view class="yellow">{{item.name}}</view>
       <view class="create_time" wx:if="{{type == 1}}">创建时间：{{item.createTime}}</view>
-      <view class="create_time" wx:if="{{type == 2}}">浏览时间：{{item.createTime}}</view>
+      <view class="create_time" wx:if="{{type == 2}}">浏览时间：{{item.visitTime}}</view>
     </view>
     <view class='arrow'></view>
   </view>

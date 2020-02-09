@@ -10,7 +10,8 @@ Page({
    */
   data: {
     form: {},
-    type: -1
+    type: -1,
+    imageUrl: ''
   },
 
   /**
@@ -18,13 +19,12 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    console.log(options.id)
     this.onInit(options)
   },
 
   async onInit(options){
     // 获取制作记录详情
-    if ( options.type == 1 ) {
+    if ( options.type == '1' ) {
       this.setData({
         type: 1
       })
@@ -35,8 +35,11 @@ Page({
       console.log(this.data.form)
     }
     // 获取浏览记录详情
-    if (options.type == 2 ) {
-
+    if (options.type == '2' ) {
+      this.setData({
+        imageUrl: options.imageUrl
+      })
+      console.log(this.data.imageUrl)
     }
   },
 

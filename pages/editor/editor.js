@@ -138,7 +138,7 @@ Page({
         var stepList = this.data.stepList
 
         var createPoster = new CreatePoster()
-        createPoster.setHeader(storeInfo.name, storeInfo.address, "", storeInfo.phone)
+        createPoster.setHeader(storeInfo.name, storeInfo.address, "", storeInfo.tel)
         // createPoster.setLogo('../../images/store/logo.jpg')
         createPoster.setLogo(this.data.logo)
         createPoster.addStep(stepList)

@@ -28,3 +28,11 @@
   align-items: center;
   padding: 30rpx 10rpx;
 }
+
+.detail_route{
+    padding: 30rpx 30rpx 0;
+}
+.detail_route .route_image{
+    width: 100%;
+    margin-bottom: 30rpx;
+}

@@ -101,7 +101,23 @@ class dbSon extends dbFather {
       })
     }
 
-
+    // 添加用户访问记录
+  visitAdd(obj) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'visit_add',
+        data: obj,
+        success: res => {
+          console.log(res.result)
+          resolve(res.result)
+        },
+        fail: res => {
+          console.log(res)
+          reject(res.result)
+        },
+      })
+    })
+  }
 
     /**********综合模块**********/
     // 上传图片
