@@ -83,6 +83,7 @@ Page({
         console.log('mapMarkers',this.data.mapMarkers)
 
         var visit = await app.db.visitAdd({
+          mapID: this.data.route._id,
           name: this.data.route.name,
           imageUrl: this.data.route.imageUrl
         })
